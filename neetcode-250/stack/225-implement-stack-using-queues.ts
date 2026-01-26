@@ -19,12 +19,7 @@ class MyStack {
 	}
 
 	top(): number {
-		let elementsUntilTop = this.queue.length - 1;
-		while (elementsUntilTop) {
-			this.queue.unshift(this.queue.shift()!);
-			--elementsUntilTop;
-		}
-		const top = this.queue.shift()!;
+		const top = this.pop();
 		this.queue.unshift(top);
 		return top;
 	}
