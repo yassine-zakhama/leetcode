@@ -8,17 +8,19 @@ class ListNode:
 
 
 class Solution:
-    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        if not head:
-            return head
+    def mergeTwoLists(
+        self, list1: Optional[ListNode], list2: Optional[ListNode]
+    ) -> Optional[ListNode]:
+        dummy_head = curr = ListNode()
 
-        next = head.next
-        head.next = None
+        while list1 and list2:
+            if list1.val <= list2.val:
+                curr.next = list1
+                list1 = list1.next
+            else:
+                curr.next = list2
+                list2 = list2.next
+            curr = curr.next
 
-        while next:
-            temp = next.next
-            next.next = head
-            head = next
-            next = temp
-
-        return head
+        curr.next = list1 or list2
+        return dummy_head.next
