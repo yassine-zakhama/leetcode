@@ -12,16 +12,12 @@ class Solution:
     def removeLeafNodes(
         self, root: Optional[TreeNode], target: int
     ) -> Optional[TreeNode]:
-        def do_remove(node):
-            if not node:
-                return False
-            elif not node.left and not node.right:
-                return node.val == target
+        if not root:
+            return None
 
-            if do_remove(node.left):
-                node.left = None
-            if do_remove(node.right):
-                node.right = None
-            return not node.left and not node.right and node.val == target
+        root.left = self.removeLeafNodes(root.left, target)
+        root.right = self.removeLeafNodes(root.right, target)
 
-        return None if do_remove(root) else root
+        if not root.left and not root.right and root.val == target:
+            return None
+        return root
