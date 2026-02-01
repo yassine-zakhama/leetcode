@@ -6,7 +6,7 @@ class Solution:
         candidates.sort()
         res, curr_comb = [], []
 
-        def dfs(i, curr_sum):
+        def find_comb(i, curr_sum):
             if i == len(candidates) or curr_sum >= target:
                 if curr_sum == target:
                     res.append(list(curr_comb))
@@ -15,10 +15,10 @@ class Solution:
             num = candidates[i]
             if curr_sum + num <= target:
                 curr_comb.append(num)
-                dfs(i, curr_sum + num)
+                find_comb(i, curr_sum + num)
                 curr_comb.pop()
 
-            dfs(i + 1, curr_sum)
+            find_comb(i + 1, curr_sum)
 
-        dfs(0, 0)
+        find_comb(0, 0)
         return res
