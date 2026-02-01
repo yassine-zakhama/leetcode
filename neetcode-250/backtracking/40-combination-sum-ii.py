@@ -12,14 +12,12 @@ class Solution:
                     res.append(list(curr_comb))
                 return
 
-            curr_len = len(res)
             curr_comb.append(candidates[i])
             do_get_comb(i + 1, curr_sum + candidates[i])
             curr_comb.pop()
 
-            if curr_len < len(res):
-                while i < len(candidates) - 1 and candidates[i + 1] == candidates[i]:
-                    i += 1
+            while i < len(candidates) - 1 and candidates[i + 1] == candidates[i]:
+                i += 1
             do_get_comb(i + 1, curr_sum)
 
         do_get_comb(0, 0)
