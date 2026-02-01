@@ -12,12 +12,9 @@ class Solution:
                     res.append(list(curr_comb))
                 return
 
-            num = candidates[i]
-            if curr_sum + num <= target:
-                curr_comb.append(num)
-                find_comb(i, curr_sum + num)
-                curr_comb.pop()
-
+            curr_comb.append(candidates[i])
+            find_comb(i, curr_sum + candidates[i])
+            curr_comb.pop()
             find_comb(i + 1, curr_sum)
 
         find_comb(0, 0)
