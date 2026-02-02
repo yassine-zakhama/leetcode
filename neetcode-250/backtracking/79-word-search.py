@@ -41,7 +41,7 @@ class Solution:
         return False
 
     # O(ROWS × COLS × 4^Len(word))
-    def exist(self, board: List[List[str]], word: str) -> bool:
+    def exist2(self, board: List[List[str]], word: str) -> bool:
         ROWS, COLS = len(board), len(board[0])
 
         def dfs(r, c, i_word):
