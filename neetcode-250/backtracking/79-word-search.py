@@ -2,7 +2,7 @@ from typing import List
 
 
 class Solution:
-    # O(m.4^n)
+    # O(ROWS × COLS × 4^Len(word))
     def exist(self, board: List[List[str]], word: str) -> bool:
         ROWS, COLS = len(board), len(board[0])
         visited = set()
@@ -40,7 +40,7 @@ class Solution:
                     return True
         return False
 
-    # O(m.4^n)
+    # O(ROWS × COLS × 4^Len(word))
     def exist(self, board: List[List[str]], word: str) -> bool:
         ROWS, COLS = len(board), len(board[0])
 
