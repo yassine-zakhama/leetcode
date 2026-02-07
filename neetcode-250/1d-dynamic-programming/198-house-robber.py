@@ -24,5 +24,4 @@ class Solution2:
             temp = max(num + rob1, rob2)
             rob1 = rob2
             rob2 = temp
-            print(rob1, rob2)
         return rob2
