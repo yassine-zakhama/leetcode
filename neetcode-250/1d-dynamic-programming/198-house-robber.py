@@ -18,10 +18,10 @@ class Solution:
 
 class Solution2:
     def rob(self, nums: List[int]) -> int:
-        rob1, rob2 = 0, 0
+        max_before_last, max_last = 0, 0
 
         for num in nums:
-            temp = max(num + rob1, rob2)
-            rob1 = rob2
-            rob2 = temp
-        return rob2
+            temp = max(num + max_before_last, max_last)
+            max_before_last = max_last
+            max_last = temp
+        return max_last
