@@ -10,6 +10,19 @@ class ListNode:
 class Solution:
     def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head:
+            return None
+
+        def reverse(prev, node):
+            next = node.next
+            node.next = prev
+            return reverse(node, next) if next else node
+
+        return reverse(None, head)
+
+
+class Solution2:
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        if not head:
             return head
 
         next = head.next
