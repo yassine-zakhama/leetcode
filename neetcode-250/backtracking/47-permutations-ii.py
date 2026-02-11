@@ -2,6 +2,7 @@ from collections import defaultdict
 from typing import List
 
 
+# O(n * n!) time and space
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
         counts = defaultdict(int)
