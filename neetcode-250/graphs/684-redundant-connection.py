@@ -1,6 +1,7 @@
 from typing import List
 
 
+# O(n) space and time
 class Solution:
     def find(self, x):
         root = self.parent[x]
