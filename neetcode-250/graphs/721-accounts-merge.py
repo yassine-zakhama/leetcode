@@ -2,6 +2,7 @@ from collections import defaultdict
 from typing import List
 
 
+# O(E * log(E))
 class Solution:
     def find(self, x):
         root = x
