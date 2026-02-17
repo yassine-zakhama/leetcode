@@ -1,8 +1,6 @@
-# O(n!) time, O(n^2) space
+# O(n!) time, O(n) space
 class Solution:
     def totalNQueens(self, n: int) -> int:
-        board = [["." for _ in range(n)] for _ in range(n)]
-
         res, taken_cols, pos_diag, neg_diag = [0], set(), set(), set()
 
         def backtrack(row):
@@ -15,7 +13,6 @@ class Solution:
                 if col in taken_cols or pos in pos_diag or neg in neg_diag:
                     continue
 
-                board[row][col] = "Q"
                 taken_cols.add(col)
                 pos_diag.add(pos)
                 neg_diag.add(neg)
@@ -25,7 +22,6 @@ class Solution:
                 neg_diag.remove(neg)
                 pos_diag.remove(pos)
                 taken_cols.remove(col)
-                board[row][col] = "."
 
         backtrack(0)
         return res[0]
