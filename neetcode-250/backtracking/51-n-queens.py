@@ -1,3 +1,4 @@
+# O(n!) time, O(n^2) space
 class Solution:
     def solveNQueens(self, n: int) -> list[list[str]]:
         board = [["." for _ in range(n)] for _ in range(n)]
