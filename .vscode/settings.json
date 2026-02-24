@@ -11,6 +11,7 @@
     "makesquare",
     "popleft",
     "postorder",
-    "preorder"
+    "preorder",
+    "subarray"
   ]
 }
