@@ -1,12 +1,11 @@
-from typing import List
+class Solution:
+    def rob(self, nums: list[int]) -> int:
+        prev2 = 0  # dp[i-2]
+        prev1 = 0  # dp[i-1]
 
+        for n in nums:
+            curr = max(prev1, prev2 + n)
+            prev2 = prev1
+            prev1 = curr
 
-class Solution2:
-    def rob(self, nums: List[int]) -> int:
-        max_before_last, max_last = 0, 0
-
-        for num in nums:
-            temp = max(num + max_before_last, max_last)
-            max_before_last = max_last
-            max_last = temp
-        return max_last
+        return prev1
